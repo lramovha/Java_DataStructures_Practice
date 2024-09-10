@@ -52,10 +52,26 @@ public class Queue {
             System.out.println(arr[i]);
         }
     }
-    
-    
-    
-    
-    
+
+    public void reverseQueue() {
+        int[] temp = new int[capacity];
+        for (int i = rear; i >= front; i--) {
+            temp[rear - i] = arr[i];
+        }
+        arr = temp;
+    }
+
+    public static void main(String[] args) {
+        Queue queue = new Queue(5);
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+        queue.enqueue(4);
+        queue.enqueue(5);
+        queue.printQueue();
+
+        System.out.println("Dequeue: " + queue.dequeue());
+        queue.printQueue();
+    }
     
 }
